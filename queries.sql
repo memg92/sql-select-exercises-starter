@@ -77,7 +77,9 @@ WHERE city IN ('Phoenix', 'Jacksonville', 'Charlotte', 'Nashville');
      city, state, and estimated population in 2018 columns.
 */
 
--- your query here
+SELECT city, state, population_estimate_2018
+FROM cities
+WHERE population_estimate_2018 BETWEEN 800000 AND 900000;
 
 \echo ========= Problem 3.4 ====================================================
 \echo
@@ -87,7 +89,9 @@ WHERE city IN ('Phoenix', 'Jacksonville', 'Charlotte', 'Nashville');
      1,000,000 people).
 */
 
--- your query here
+SELECT city, state, population_estimate_2018
+FROM cities
+WHERE population_estimate_2018 > 1000000;
 
 \echo ========= Problem 3.5 ====================================================
 \echo
@@ -97,20 +101,21 @@ WHERE city IN ('Phoenix', 'Jacksonville', 'Charlotte', 'Nashville');
      uses a WHERE clause to return only the cities in Texas.
 */
 
--- your query here
+SELECT city, state, CONCAT(population_estimate_2018 / 1000000, ' million') population_estimate_2018
+FROM cities
+WHERE state = 'Texas'
 
 \echo ========= Problem 3.6 ====================================================
 \echo
 /*
-3.6) Write a SQL query to get the city and estimated population in 2018 in
-     number of millions (i.e. without zeroes at the end: 1 million), and that
-     uses a WHERE clause to return only the cities in Texas. Write a SQL query
-     that uses a WHERE clause to get the city, state, and estimated population
-     in 2018 of cities that are NOT in the following states:
-     New York, California, Texas.
+3.6) Write a SQL query that uses a WHERE clause to get the city, state, and
+estimated population in 2018 of cities that are NOT in the following states:
+New York, California, Texas.
 */
 
--- your query here
+SELECT city, state, CONCAT(population_estimate_2018 / 1000000, ' million') population_estimate_2018
+FROM cities
+WHERE state != ('Texas')
 
 \echo ========= Problem 3.7 ====================================================
 \echo
